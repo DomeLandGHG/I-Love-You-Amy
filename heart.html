@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D + A ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #8b0000, #ff0000, #8b0000, #4a0000);
+            background-size: 400% 400%;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            position: relative;
+            animation: gradientFlow 15s ease infinite;
+        }
+
+        @keyframes gradientFlow {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Glowing effect */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 0, 0, 0.3), transparent 60%);
+            animation: glow 4s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                opacity: 0.5;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                opacity: 0.8;
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .heart-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .initials {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+            letter-spacing: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            z-index: 2;
+            font-weight: bold;
+        }
+
+        .small-heart {
+            font-size: 2rem;
+            color: #ff6b6b;
+            animation: smallHeartBeat 2s ease-in-out infinite;
+        }
+
+        @keyframes smallHeartBeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            25% {
+                transform: scale(1.15);
+            }
+        }
+
+        .big-heart {
+            font-size: 35rem;
+            color: #ff0000;
+            text-shadow: 
+                0 0 30px rgba(255, 0, 0, 0.8),
+                0 0 60px rgba(255, 0, 0, 0.6),
+                0 0 90px rgba(255, 0, 0, 0.4);
+            animation: heartbeat 1.5s ease-in-out infinite;
+            display: inline-block;
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
+            position: relative;
+        }
+
+        .big-heart::before {
+            content: '❤️';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, transparent 30%, transparent 70%, rgba(255, 255, 255, 0.3) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 3s ease-in-out infinite;
+        }
+
+        @keyframes shine {
+            0%, 100% {
+                opacity: 0.3;
+            }
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            10% {
+                transform: scale(1.1);
+            }
+            20% {
+                transform: scale(1);
+            }
+            30% {
+                transform: scale(1.1);
+            }
+            40%, 100% {
+                transform: scale(1);
+            }
+        }
+
+        .falling-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .falling-heart {
+            position: absolute;
+            top: -50px;
+            font-size: 2rem;
+            color: rgba(255, 100, 100, 0.6);
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                top: -50px;
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                top: 100vh;
+                opacity: 0;
+            }
+        }
+
+        .falling-heart:nth-child(1) { left: 10%; animation-duration: 8s; animation-delay: 0s; }
+        .falling-heart:nth-child(2) { left: 20%; animation-duration: 10s; animation-delay: 2s; }
+        .falling-heart:nth-child(3) { left: 30%; animation-duration: 9s; animation-delay: 4s; }
+        .falling-heart:nth-child(4) { left: 40%; animation-duration: 11s; animation-delay: 1s; }
+        .falling-heart:nth-child(5) { left: 50%; animation-duration: 8.5s; animation-delay: 3s; }
+        .falling-heart:nth-child(6) { left: 60%; animation-duration: 10.5s; animation-delay: 5s; }
+        .falling-heart:nth-child(7) { left: 70%; animation-duration: 9.5s; animation-delay: 1.5s; }
+        .falling-heart:nth-child(8) { left: 80%; animation-duration: 11.5s; animation-delay: 3.5s; }
+        .falling-heart:nth-child(9) { left: 90%; animation-duration: 10s; animation-delay: 0.5s; }
+        .falling-heart:nth-child(10) { left: 15%; animation-duration: 9s; animation-delay: 6s; }
+    </style>
+</head>
+<body>
+    <div class="falling-hearts">
+        <div class="falling-heart">❤️</div>
+        <div class="falling-heart">❤️</div>
+        <div class="falling-heart">❤️</div>
+        <div class="falling-heart">❤️</div>
+        <div class="falling-heart">❤️</div>
+        <div class="falling-heart">❤️</div>
+        <div class="falling-heart">❤️</div>
+        <div class="falling-heart">❤️</div>
+        <div class="falling-heart">❤️</div>
+        <div class="falling-heart">❤️</div>
+    </div>
+
+    <div class="container">
+        <div class="heart-wrapper">
+            <div class="big-heart">
+                ❤️
+            </div>
+            <div class="initials">
+                <span>D</span>
+                <span>+</span>
+                <span>A</span>
+                <span>=</span>
+                <span class="small-heart">❤️</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
